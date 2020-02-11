@@ -8,21 +8,26 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RowTest {
     @Test
-    void testShouldCheckTwoRowsAreEqual() {
+    void testShouldReturnTrueIfTwoRowsAreEqual() {
         Row row1 = new Row(0);
         Row row2 = new Row(0);
-        assertEquals(row1, row2);
+        List<Row> rowList = new ArrayList<>(Arrays.asList(row1, row2));
+        Comparator rowComparator = new RowComparator(rowList);
+        boolean actual = rowComparator.compare();
+
+        assertTrue(actual);
     }
 
     @Test
-    void testShouldCheckMorethanTwoRowsAreEqual() {
-        Row row1=new Row(0);
-        Row row2=new Row(0);
-        Row row3=new Row(1);
-        List<Row> rowList=new ArrayList<>(Arrays.asList(row1,row2,row3));
-        RowComparator rowComparator=new RowComparator(rowList);
+    void estShouldReturnTrueIfThreeRowsAreEqual() {
+        Row row1 = new Row(0);
+        Row row2 = new Row(0);
+        Row row3 = new Row(0);
+        List<Row> rowList = new ArrayList<>(Arrays.asList(row1, row2, row3));
+        Comparator rowComparator = new RowComparator(rowList);
 
-        rowComparator.compare();
+        boolean actual = rowComparator.compare();
 
+        assertTrue(actual);
     }
 }

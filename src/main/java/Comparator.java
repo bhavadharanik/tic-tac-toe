@@ -1,4 +1,3 @@
-package PACKAGE_NAME;
-
-public class Comparator {
+public interface Comparator {
+    boolean compare();
 }
